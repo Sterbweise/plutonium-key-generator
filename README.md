@@ -47,13 +47,13 @@ To install the Plutonium Key Generator:
 1. Go to the [Releases](https://github.com/sterbweise/plutonium-key-generator/releases) page of the GitHub repository.
 2. Find the latest release version.
 3. Download the appropriate version for your operating system:
-   - For Windows: Download the file ending with `-windows.exe`
-   - For Linux: Download the file ending with `-linux`
+   - For Windows: Download the file `plutonium-key-generator.exe`
+   - For Linux: Download the file `plutonium-key-generator`
 4. Once downloaded:
    - Windows users: Double-click the `.exe` file to run it.
    - Linux users: 
      a. Open a terminal in the directory where you downloaded the file.
-     b. Make the file executable with the command: `chmod +x plutonium-key-generator-linux`
+     b. Make the file executable with the command: `chmod +x plutonium-key-generator`
      c. Run the file with: `./plutonium-key-generator-linux`
 
 Note: Ensure you have the necessary permissions to execute the file on your system. On some systems, you may need to right-click the file and select "Run as administrator" (Windows) or use `sudo` (Linux) if you encounter permission issues.
