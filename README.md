@@ -30,12 +30,6 @@ A command-line tool for generating Plutonium server keys without owning the game
 
 The generated keys are temporary, lasting 48 hours, making this tool ideal for testing and temporary server setups. Please note that this tool should not be used if you own the game, as official methods for key generation are available through the Plutonium platform.
 
-## Details
-- **Version:** 1.0.0
-- **Author:** Sterbweise
-- **Repository:** https://github.com/sterbweise/plutonium-key-generator
-- **License:** MIT
-
 ## Warning
 <span style="color: red;"><strong>Please don't use this tool if you own the game. Get the key by the classic method on https://platform.plutonium.pw/serverkeys</strong></span>
 
