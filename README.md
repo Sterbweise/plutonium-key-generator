@@ -3,9 +3,10 @@
 [![Rust](https://img.shields.io/badge/rust-1.70.0-orange?logo=rust)](https://www.rust-lang.org/)
 [![Windows](https://img.shields.io/badge/platform-Windows-blue?logo=windows)](https://www.microsoft.com/windows)
 [![Linux](https://img.shields.io/badge/platform-Linux-yellow?logo=linux)](https://www.linux.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?logo=opensource)](https://opensource.org/licenses/MIT)
 [![GitHub repo size](https://img.shields.io/github/repo-size/sterbweise/plutonium-key-generator?logo=github)](https://github.com/sterbweise/plutonium-key-generator)
 [![GitHub last commit](https://img.shields.io/github/last-commit/sterbweise/plutonium-key-generator?logo=github)](https://github.com/sterbweise/plutonium-key-generator/commits/main)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green?logo=opensource)](https://opensource.org/licenses/MIT)
+[![Rust CI](https://github.com/Sterbweise/plutonium-key-generator/actions/workflows/rust.yml/badge.svg)](https://github.com/Sterbweise/plutonium-key-generator/actions/workflows/rust.yml)
 
 <img src="https://imgur.com/bBrx8Hf.png" alt="Plutonium Logo" width="350"/>
 
