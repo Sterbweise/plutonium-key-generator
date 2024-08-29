@@ -65,7 +65,7 @@ fn print_logo() {
     println!("\n┌─────────────────────────────────────────────────────────────────────────────────────────────┐");
     println!("│                                 \x1b[1mPlutonium Key Generator\x1b[0m                                     │");
     println!("├─────────────────────────────────────────────────────────────────────────────────────────────┤");
-    println!("│ \x1b[1;33mVersion\x1b[0m     │ 1.0.0                                                                         │");
+    println!("│ \x1b[1;33mVersion\x1b[0m     │ 1.1.0                                                                         │");
     println!("│ \x1b[1;33mAuthor\x1b[0m      │ Sterbweise                                                                    │");
     println!("│ \x1b[1;33mDescription\x1b[0m │ A command-line tool for generating keys for various Plutonium game servers.   │");
     println!("│ \x1b[1;33mRepository\x1b[0m  │ https://github.com/sterbweise/plutonium-key-generator                         │");
