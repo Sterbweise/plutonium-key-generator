@@ -38,8 +38,10 @@ struct ServerInfo {
 }
 
 #[derive(Deserialize)]
-struct ApiResponse {
-    key: String,
+#[serde(untagged)]
+enum ApiResponse {
+    Success { key: String },
+    Error { error: String },
 }
 
 fn print_logo() {
@@ -86,7 +88,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     print_logo();
     println!("Supported Games:");
     println!("- Call of Duty: World at War \x1b[33m[Not supported yet by the api]\x1b[0m");
-    println!("- Call of Duty: Black Ops \x1b[33m[Not supported yet by the api]\x1b[0m");
+    println!("- Call of Duty: Black Ops \x1b[32m[Supported]\x1b[0m");
     println!("- Call of Duty: Black Ops II \x1b[32m[Supported]\x1b[0m");
     println!("- Call of Duty: Modern Warfare 3 \x1b[33m[Not supported yet by the api]\x1b[0m");
     println!("\nPress ENTER to start...");
@@ -108,7 +110,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // Ask for the game
     let games = [
-        ("1", "Black Ops 1 \x1b[31m[Not supported]\x1b[0m", "bo1"),
+        ("1", "Black Ops 1 \x1b[32m[Supported]\x1b[0m", "bo1"),
         ("2", "Black Ops 2 \x1b[32m[Supported]\x1b[0m", "bo2"),
         ("3", "Modern Warfare 3 \x1b[31m[Not supported]\x1b[0m", "mw3"),
         ("4", "World at War \x1b[31m[Not supported]\x1b[0m", "waw"),
@@ -180,21 +182,29 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Process the response
     match res.json::<ApiResponse>() {
         Ok(api_response) => {
-            print_logo();
-            println!("Generated key: {}", api_response.key);
-            println!("\x1b[1;31mAttention: The key will only be valid for 48 hours.\x1b[0m");
-            println!("For more information, please check the information section in the Git repository.");
-        },
-        Err(_) => {
-            print_logo();
-            println!("The key could not be created. Do you want to try again? (Y/N)");
-            let mut retry = String::new();
-            io::stdin().read_line(&mut retry)?;
-            if retry.trim().to_lowercase() == "y" {
-                return main();  // Restart the program
-            } else {
-                println!("Sorry, we cannot create your key.");
+            match api_response {
+                ApiResponse::Success { key } => {
+                    print_logo();
+                    println!("Generated key: {}", key);
+                    println!("\x1b[1;31mAttention: The key will only be valid for 48 hours.\x1b[0m");
+                    println!("For more information, please check the information section in the Git repository.");
+                },
+                ApiResponse::Error { error } => {
+                    print_logo();
+                    println!("\x1b[1;31mError:\x1b[0m {}.\nDo you want to try again? (Y/N)", error);
+                    let mut retry = String::new();
+                    io::stdin().read_line(&mut retry)?;
+                    if retry.trim().to_lowercase() == "y" {
+                        return main();  // Restart the program
+                    } else {
+                        return Ok(());
+                    }
+                }
             }
+        },
+        Err(_err) => {
+            print_logo();
+            println!("Failed to parse the response. Please try again later.");
         }
     }
     println!("\nPress ENTER to exit the program...");
